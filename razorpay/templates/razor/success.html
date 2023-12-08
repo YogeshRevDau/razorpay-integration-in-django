@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sucess page</title>
+</head>
+<body>
+{% if status %}
+<h2 style="text-align: center; color: greenyellow">Success!</h2>
+
+<a href="{% url 'create_order' %}" style="text-align: center;">Go to Home</a>
+
+{% else %}
+<h2 style="text-align: center; color: red">Failure!</h2>
+{% endif %}
+</body>
+</html>

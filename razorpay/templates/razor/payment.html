@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<body>
+
+{% if order %}
+
+<form method="post" action="{% url 'success' %}">
+  {% csrf_token %}
+  <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_WAWBpAueqop6CP"
+    data-amount="{{ order.amount }}"
+    data-currency="INR"
+    data-order_id="{{ order.order_id }}"
+    data-buttontext="Pay with Razorpay"
+    data-name="ANAYA BANK"
+    data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="{{ order.name }}"
+    data-prefill.email="anu@example.com"
+    data-theme.color="#F37254"
+  ></script>
+
+  <input type="hidden" custom="Hidden Element" name="hidden" />
+</form>
+<!--<a href="{% url 'initiate_refund' order_id=order.order_id %}">Initiate Refund</a>-->
+{% endif %}
+
+</body>
+</html>

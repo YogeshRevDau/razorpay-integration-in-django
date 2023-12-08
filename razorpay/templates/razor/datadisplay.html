@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowData</title>
+</head>
+<body>
+<h1>Order Data </h1>
+<table class="table" border="3px">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Refund</th>
+      <th scope="col">Paid</th>
+
+    </tr>
+  </thead>
+    {% for i in data %}
+  <tbody>
+    <tr>
+
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.amount}}</td>
+      <td>{{i.paid}}</td>
+
+
+      <td><button><a href="{% url 'initiate_refund' order_id=i.order_id %}">Initiate Refund</a></button></td>
+
+    </tr>
+
+   {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'create_order' %}">Return Home</a>
+</body>
+</html>
