@@ -28,7 +28,7 @@ def OrderView(request):
     template_name = 'razor/create_order.html'
     context = {}
     return render(request, template_name, context)
-    # return render(request, 'razor/create_order.html')
+
 
 
 @csrf_exempt
